@@ -1,0 +1,47 @@
+{
+  "results": [
+    {
+      "gender": "male",
+      "name": { "title": "Mr", "first": "Balduíno", "last": "Rezende" },
+      "location": {
+        "street": { "number": 2597, "name": "Rua São João " },
+        "city": "Ubá",
+        "state": "Paraná",
+        "country": "Brazil",
+        "postcode": 44890,
+        "coordinates": { "latitude": "-74.0267", "longitude": "-116.0054" },
+        "timezone": {
+          "offset": "+10:00",
+          "description": "Eastern Australia, Guam, Vladivostok"
+        }
+      },
+      "email": "balduino.rezende@example.com",
+      "login": {
+        "uuid": "2df4cf86-bf6a-4dad-be65-7669f6d61d6a",
+        "username": "greenfrog535",
+        "password": "thesims",
+        "salt": "Q8xP1P1o",
+        "md5": "aee9ba7a3bbef3230a6b4e660414266f",
+        "sha1": "1f5bb7cf6285204b708bff685a74abe096c6975f",
+        "sha256": "53783e0c71cade7cf35613350f478e10799af3b757eb56180c2388668246526a"
+      },
+      "dob": { "date": "1965-07-18T02:05:48.925Z", "age": 57 },
+      "registered": { "date": "2009-06-25T02:57:49.504Z", "age": 13 },
+      "phone": "(94) 8408-4664",
+      "cell": "(40) 4381-1546",
+      "id": { "name": "", "value": null },
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/men/61.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/men/61.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/men/61.jpg"
+      },
+      "nat": "BR"
+    }
+  ],
+  "info": {
+    "seed": "eb07d1d479297cc7",
+    "results": 1,
+    "page": 1,
+    "version": "1.3"
+  }
+}
