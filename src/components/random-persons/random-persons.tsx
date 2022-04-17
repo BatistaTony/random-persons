@@ -1,6 +1,15 @@
 import { useEffect, useState, useCallback } from "react";
 import { getPersons } from "../../services/persons";
 import { Person } from "../../types/person";
+import {
+  RandomPersonsContainer,
+  ButtonLoadMore,
+  LisItem,
+  LisItemPic,
+  ListUsers,
+  Title,
+  LisItemName,
+} from "./random-persons.styles";
 
 const LOADING_TIME = 2000;
 
@@ -13,37 +22,38 @@ const RandomPersons = () => {
     setPageResults(pageResults + 10);
   };
 
-  const loadData = useCallback(async () => {
+  const loadData = async () => {
     const data = await getPersons({
       items: pageResults,
     });
-
-    console.log(data.results);
-
     setPersons(data.results);
-  }, [pageResults]);
+  };
+
+  // useEffect(() => {
+  //   loadData();
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [pageResults]);
 
   useEffect(() => {
     loadData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pageResults]);
-
-  useEffect(() => {
-    loadData();
-  }, []);
 
   return (
-    <div>
-      RandomPersons {pageResults}
+    <RandomPersonsContainer>
+      <Title>Random Users</Title>
+
       {persons.length !== 0 && (
-        <div>
+        <ListUsers>
           {persons.map((person) => (
-            <li key={person.id.value}>{person.name.first}</li>
+            <LisItem key={person.email}>
+              <LisItemPic src={person.picture.medium} alt="" />
+              <LisItemName>{`${person.name.title} ${person.name.first} ${person.name.last}`}</LisItemName>
+            </LisItem>
           ))}
-        </div>
+        </ListUsers>
       )}
-      <button onClick={getMoreResults}>load more</button>
-    </div>
+      <ButtonLoadMore onClick={getMoreResults}>load more</ButtonLoadMore>
+    </RandomPersonsContainer>
   );
 };
 
