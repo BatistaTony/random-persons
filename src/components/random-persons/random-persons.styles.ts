@@ -5,6 +5,7 @@ export const RandomPersonsContainer = styled.div`
   height: auto;
   padding: 10px;
   margin: 0 auto;
+  margin-bottom: 30px;
 `;
 
 export const Title = styled.h1`
@@ -27,6 +28,7 @@ export const LisItem = styled.div`
   border: 1px solid gray;
   padding-left: 10px;
   position: relative;
+  border-radius: 5px;
 
   .person-index {
     font-size: 13pt;

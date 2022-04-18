@@ -4,16 +4,12 @@ import { rest } from "msw";
 import mockData from "./../../helpers/mockData.json";
 import { setupServer } from "msw/node";
 
-// eslint-disable-next-line import/first
-// import axiosMock from "axios";
-// jest.mock("axios");
-
 const URL = "https://randomuser.me/api/";
 
 const handlers = [
   rest.get(URL, (req, res, ctx) => {
     req.params = {
-      results: "10",
+      results: req.params.results,
     };
     return res(ctx.status(200), ctx.json(mockData));
   }),

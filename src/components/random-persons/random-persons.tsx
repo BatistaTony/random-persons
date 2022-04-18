@@ -38,7 +38,7 @@ const RandomPersons = () => {
   return (
     <RandomPersonsContainer>
       <Title>
-        Random Users <span data-testid="counter-users">{counter}</span>
+        Random Persons <span data-testid="counter-users">{counter}</span>
       </Title>
 
       {!!error && <p>{error}</p>}
