@@ -1,6 +1,5 @@
-import { useEffect, useState, useCallback } from "react";
-import { getPersons } from "../../services/persons";
-import { Person } from "../../types/person";
+import { useState } from "react";
+import { useGetUsers } from "../../hooks/useGetUsers";
 import {
   RandomPersonsContainer,
   ButtonLoadMore,
@@ -11,32 +10,13 @@ import {
   LisItemName,
 } from "./random-persons.styles";
 
-const LOADING_TIME = 2000;
-
 const RandomPersons = () => {
-  const [persons, setPersons] = useState<Person[]>([]);
   const [pageResults, setPageResults] = useState(10);
-  const [isLoading, setIsLoading] = useState(false);
+  const { data, error, isLoading } = useGetUsers({ users: pageResults });
 
   const getMoreResults = () => {
     setPageResults(pageResults + 10);
   };
-
-  const loadData = async () => {
-    const data = await getPersons({
-      items: pageResults,
-    });
-    setPersons(data.results);
-  };
-
-  // useEffect(() => {
-  //   loadData();
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [pageResults]);
-
-  useEffect(() => {
-    loadData();
-  }, [pageResults]);
 
   return (
     <RandomPersonsContainer>
@@ -44,17 +24,24 @@ const RandomPersons = () => {
         Random Users <span data-testid="counter-users">{pageResults}</span>
       </Title>
 
-      {persons.length !== 0 && (
+      {!!error && <p>{error}</p>}
+
+      {data.length !== 0 && (
         <ListUsers data-testid="list-users">
-          {persons.map((person, index) => (
+          {data.map((person, index) => (
             <LisItem key={person.email}>
-              <p data-testid="index-user">{index + 1}</p>
+              <p className="person-index" data-testid="index-user">
+                {index + 1}
+              </p>
               <LisItemPic src={person.picture.medium} alt="" />
               <LisItemName>{`${person.name.title} ${person.name.first} ${person.name.last}`}</LisItemName>
             </LisItem>
           ))}
         </ListUsers>
       )}
+
+      {isLoading && <p data-testid="loading">Loading users...</p>}
+
       <ButtonLoadMore data-testid="show-more" onClick={getMoreResults}>
         load more
       </ButtonLoadMore>

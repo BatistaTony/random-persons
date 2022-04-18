@@ -69,4 +69,19 @@ describe("Random Persons", () => {
       );
     });
   });
+
+  it("Should say is loading users when click at button show-more", async () => {
+    // eslint-disable-next-line testing-library/render-result-naming-convention
+    const screen = render(<RandomPersons />);
+
+    const button = screen.getAllByTestId("show-more");
+
+    fireEvent.click(button[0]);
+
+    await waitFor(() => {
+      expect(screen.getAllByTestId("loading")[0]).toHaveTextContent(
+        "Loading users..."
+      );
+    });
+  });
 });

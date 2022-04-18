@@ -18,18 +18,36 @@ export const ListUsers = styled.div`
 
 export const LisItem = styled.div`
   width: 100%;
-  height: 50px;
+  height: auto;
   display: grid;
-  grid-template-columns: 20px 50px auto;
+  grid-template-columns: auto auto auto;
   margin-bottom: 20px;
   align-items: center;
   justify-content: flex-start;
+  border: 1px solid gray;
+  padding-left: 10px;
+
+  .person-index {
+    font-size: 13pt;
+    width: auto;
+    margin-right: 20px;
+  }
 `;
 
 export const LisItemPic = styled.img`
   width: 50px;
   height: 50px;
   border-radius: 100%;
+`;
+
+export const LisItemButtonRemove = styled.img`
+  width: 100px;
+  background: red;
+  color: black;
+  height: 50px;
+  border-radius: 5px;
+  position: absolute;
+  right: 10px;
 `;
 
 export const LisItemName = styled.h5`
@@ -40,9 +58,9 @@ export const LisItemName = styled.h5`
 export const ButtonLoadMore = styled.button`
   border: none;
   outline: none;
-  width: 100px;
-  font-size: 12pt;
-  height: 30px;
+  width: 150px;
+  font-size: 13pt;
+  height: 50px;
   border-radius: 8px;
   margin-top: 40px;
   cursor: pointer;
