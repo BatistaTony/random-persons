@@ -10,6 +10,7 @@ import {
   Title,
   LisItemName,
   LisItemButtonRemove,
+  LoadingIndicator,
 } from "./random-persons.styles";
 
 const RandomPersons = () => {
@@ -65,7 +66,11 @@ const RandomPersons = () => {
         </ListUsers>
       )}
 
-      {isLoading && <p data-testid="loading">Loading users...</p>}
+      {isLoading && (
+        <LoadingIndicator data-testid="loading" className="loading">
+          Loading users...
+        </LoadingIndicator>
+      )}
 
       <ButtonLoadMore data-testid="show-more" onClick={getMoreResults}>
         load more

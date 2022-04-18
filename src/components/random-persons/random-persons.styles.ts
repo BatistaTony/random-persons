@@ -69,3 +69,8 @@ export const ButtonLoadMore = styled.button`
   margin-top: 40px;
   cursor: pointer;
 `;
+
+export const LoadingIndicator = styled.p`
+  font-size: 14pt;
+  font-weight: bold;
+`;
