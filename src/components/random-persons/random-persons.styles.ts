@@ -26,6 +26,7 @@ export const LisItem = styled.div`
   justify-content: flex-start;
   border: 1px solid gray;
   padding-left: 10px;
+  position: relative;
 
   .person-index {
     font-size: 13pt;
@@ -40,14 +41,17 @@ export const LisItemPic = styled.img`
   border-radius: 100%;
 `;
 
-export const LisItemButtonRemove = styled.img`
+export const LisItemButtonRemove = styled.button`
+  border: none;
+  outline: none;
   width: 100px;
   background: red;
   color: black;
-  height: 50px;
+  height: 40px;
   border-radius: 5px;
   position: absolute;
   right: 10px;
+  cursor: pointer;
 `;
 
 export const LisItemName = styled.h5`

@@ -23,7 +23,6 @@ export const useGetUsers = ({ users }: useGetUsersProps) => {
 
       setData(data.results);
     } catch (error) {
-      console.log(error);
       setError("something went wrong");
     }
   };

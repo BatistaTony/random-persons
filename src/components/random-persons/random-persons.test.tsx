@@ -44,29 +44,27 @@ describe("Random Persons", () => {
   it("should show more 10 users when click on the button show more", async () => {
     // eslint-disable-next-line testing-library/render-result-naming-convention
     const screen = render(<RandomPersons />);
-    let counter = 10;
 
     const button = screen.getAllByTestId("show-more");
+    let counterDefault = 0;
 
     const showMore = () => {
       fireEvent.click(button[0]);
-      counter = counter + 10;
+      counterDefault = counterDefault + 10;
     };
 
     showMore();
 
     await waitFor(() => {
-      expect(screen.getAllByTestId("counter-users")[0]).toHaveTextContent(
-        `${counter}`
-      );
+      const counter = screen.getAllByTestId("counter-users")[0];
+      expect(counter).toHaveTextContent(`${counterDefault}`);
     });
 
     showMore();
 
     await waitFor(() => {
-      expect(screen.getAllByTestId("counter-users")[0]).toHaveTextContent(
-        `${counter}`
-      );
+      const counter = screen.getAllByTestId("counter-users")[0];
+      expect(counter).toHaveTextContent(`${counterDefault}`);
     });
   });
 
