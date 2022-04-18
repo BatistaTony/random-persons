@@ -44,8 +44,9 @@ const RandomPersons = () => {
 
       {persons.length !== 0 && (
         <ListUsers>
-          {persons.map((person) => (
+          {persons.map((person, index) => (
             <LisItem key={person.email}>
+              <p>{index + 1}</p>
               <LisItemPic src={person.picture.medium} alt="" />
               <LisItemName>{`${person.name.title} ${person.name.first} ${person.name.last}`}</LisItemName>
             </LisItem>

@@ -20,7 +20,7 @@ export const LisItem = styled.div`
   width: 100%;
   height: 50px;
   display: grid;
-  grid-template-columns: 50px auto;
+  grid-template-columns: 20px 50px auto;
   margin-bottom: 20px;
   align-items: center;
   justify-content: flex-start;
