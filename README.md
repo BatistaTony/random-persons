@@ -26,3 +26,8 @@ $ npm start
 ```sh
 $ npm test
 ```
+
+
+## Live Demo
+
+[https://random-persons-eight.vercel.app/](https://random-persons-eight.vercel.app/)
