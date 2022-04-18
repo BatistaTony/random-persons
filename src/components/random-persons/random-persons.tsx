@@ -40,20 +40,24 @@ const RandomPersons = () => {
 
   return (
     <RandomPersonsContainer>
-      <Title>Random Users</Title>
+      <Title>
+        Random Users <span data-testid="counter-users">{pageResults}</span>
+      </Title>
 
       {persons.length !== 0 && (
-        <ListUsers>
+        <ListUsers data-testid="list-users">
           {persons.map((person, index) => (
             <LisItem key={person.email}>
-              <p>{index + 1}</p>
+              <p data-testid="index-user">{index + 1}</p>
               <LisItemPic src={person.picture.medium} alt="" />
               <LisItemName>{`${person.name.title} ${person.name.first} ${person.name.last}`}</LisItemName>
             </LisItem>
           ))}
         </ListUsers>
       )}
-      <ButtonLoadMore onClick={getMoreResults}>load more</ButtonLoadMore>
+      <ButtonLoadMore data-testid="show-more" onClick={getMoreResults}>
+        load more
+      </ButtonLoadMore>
     </RandomPersonsContainer>
   );
 };
